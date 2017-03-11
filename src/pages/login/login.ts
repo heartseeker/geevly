@@ -61,4 +61,17 @@ export class LoginPage {
 	    alert.present(prompt);
   	}
 
+  	log() {
+  		this.auth.postIt().subscribe(allowed => {
+  			this.loading.dismiss();
+	    	console.log(allowed);
+	    },
+	    error => {
+	    	console.log('Error!!!');
+      		this.showError(error);
+	    });
+  	}
+
+
+
 }
