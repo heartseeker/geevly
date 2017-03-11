@@ -10,7 +10,6 @@ import { AuthService } from '../providers/auth-service';
     MyApp,
     HomePage,
     LoginPage,
-    AuthService,
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -20,8 +19,7 @@ import { AuthService } from '../providers/auth-service';
     MyApp,
     HomePage,
     LoginPage,
-    AuthService,
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthService]
 })
 export class AppModule {}

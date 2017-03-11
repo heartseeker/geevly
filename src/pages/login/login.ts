@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController, LoadingController, Loading } from 'ionic-angular';
+import { AuthService } from '../../providers/auth-service';
+import { HomePage } from '../home/home';
 
 /*
   Generated class for the Login page.
@@ -13,10 +15,50 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+	loading: Loading;
+  	user = {username: '', password: ''};
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-  }
+
+  	constructor(public navCtrl: NavController, public navParams: NavParams, private auth: AuthService, private alertCtrl: AlertController, private loadingCtrl: LoadingController) {}
+
+  	ionViewDidLoad() {
+    	console.log('ionViewDidLoad LoginPage');
+  	}
+
+  	login() {
+	    this.showLoading()
+
+	    this.auth.login(this.user).subscribe(allowed => {
+	    	console.log(allowed);
+      		if (allowed) {
+        		this.loading.dismiss();
+        		this.navCtrl.setRoot(HomePage)
+      		} else {
+	        	this.showError("Access Denied");
+	      }
+	    },
+	    error => {
+	    	console.log('Error!');
+      		this.showError(error);
+	    });
+	}
+	 
+	showLoading() {
+		this.loading = this.loadingCtrl.create({
+      		content: 'Please wait...'
+	    });
+	    this.loading.present();
+	}
+	 
+  	showError(text) {
+  		this.loading.dismiss();
+	   
+	    let alert = this.alertCtrl.create({
+	      title: 'Fail',
+	      subTitle: text,
+	      buttons: ['OK']
+	    });
+	    alert.present(prompt);
+  	}
 
 }
