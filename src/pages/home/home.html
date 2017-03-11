@@ -1,16 +1,92 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar no-border-bottom>
+        <ion-title>
+            Geevly
+        </ion-title>
+    </ion-navbar>
+    <ion-toolbar no-border-top>
+        <ion-segment [(ngModel)]="selected">
+            <ion-segment-button value="unclaimed">
+                Donees
+            </ion-segment-button>
+            <ion-segment-button value="claimed">
+                Claimed
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
 </ion-header>
-
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
-  <h3>Welcome inside, {{username}}!</h3>
-  Your Email is: {{name}}
+<ion-content>
+    <div [ngSwitch]="selected">
+        <ion-list *ngSwitchCase="'unclaimed'">
+          <ion-searchbar ></ion-searchbar>
+            <ion-item *ngFor="let donee of donees">
+                <ion-thumbnail item-left>
+                    <img src="assets/img/thumbnail-totoro.png">
+                </ion-thumbnail>
+                <h2>My Neighbor Totoro</h2>
+                <p>Hayao Miyazaki • 1988</p>
+                <button ion-button clear item-right>
+                    <ion-icon class="cam" name='camera' item-right></ion-icon>
+                </button>
+            </ion-item>
+        </ion-list>
+        <ion-list *ngSwitchCase="'claimed'">
+            <ion-item>
+                <ion-thumbnail item-left>
+                    <img src="assets/img/thumbnail-totoro.png">
+                </ion-thumbnail>
+                <h2>My Neighbor Totoro</h2>
+                <p>Hayao Miyazaki • 1988</p>
+                <button ion-button clear item-right>View</button>
+            </ion-item>
+            <ion-item>
+                <ion-thumbnail item-left>
+                    <img src="assets/img/thumbnail-rotla.png">
+                </ion-thumbnail>
+                <h2>Raiders of the Lost Ark</h2>
+                <p>Steven Spielberg • 1981</p>
+                <button ion-button clear item-right>View</button>
+            </ion-item>
+            <ion-item>
+                <ion-thumbnail item-left>
+                    <img src="assets/img/thumbnail-ghostbusters.png">
+                </ion-thumbnail>
+                <h2>Ghostbusters</h2>
+                <p>Ivan Reitman • 1984</p>
+                <button ion-button clear item-right>View</button>
+            </ion-item>
+            <ion-item>
+                <ion-thumbnail item-left>
+                    <img src="assets/img/thumbnail-batman.png">
+                </ion-thumbnail>
+                <h2>Batman</h2>
+                <p>Tim Burton • 1988</p>
+                <button ion-button clear item-right>View</button>
+            </ion-item>
+            <ion-item>
+                <ion-thumbnail item-left>
+                    <img src="assets/img/thumbnail-bttf.png">
+                </ion-thumbnail>
+                <h2>Back to the Future</h2>
+                <p>Robert Zemeckis • 1985</p>
+                <button ion-button clear item-right>View</button>
+            </ion-item>
+            <ion-item>
+                <ion-thumbnail item-left>
+                    <img src="assets/img/thumbnail-esb.png">
+                </ion-thumbnail>
+                <h2>The Empire Strikes Back</h2>
+                <p>Irvin Kershner • 1980</p>
+                <button ion-button clear item-right>View</button>
+            </ion-item>
+            <ion-item>
+                <ion-thumbnail item-left>
+                    <img src="assets/img/thumbnail-terminator.png">
+                </ion-thumbnail>
+                <h2>The Terminator</h2>
+                <p>James Cameron • 1984</p>
+                <button ion-button clear item-right>View</button>
+            </ion-item>
+        </ion-list>
+    </div>
 </ion-content>

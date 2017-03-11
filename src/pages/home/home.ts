@@ -11,12 +11,20 @@ export class HomePage {
 
 	name = '';
 	username = '';
+	selected = '';
+	donees = [];
 
 	constructor(private navCtrl: NavController, private auth: AuthService) {
-		let info = this.auth.getUserInfo();
-		console.log(info);
-		this.name = info.name;
-		this.username = info.username;
+		// let info = this.auth.getUserInfo();
+		// console.log(info);
+		// this.name = info.name;
+		// this.username = info.username;
+		this.selected = 'unclaimed';
+
+		for(let i =0; i < 10; i++) {
+			this.donees.push(i);
+		}
+
   	}
 
 }

@@ -25,7 +25,7 @@ export class LoginPage {
     	console.log('ionViewDidLoad LoginPage');
   	}
 
-  	login() {
+  	signIn() {
 	    this.showLoading()
 
 	    this.auth.login(this.user).subscribe(allowed => {
@@ -60,18 +60,6 @@ export class LoginPage {
 	    });
 	    alert.present(prompt);
   	}
-
-  	log() {
-  		this.auth.postIt().subscribe(allowed => {
-  			this.loading.dismiss();
-	    	console.log(allowed);
-	    },
-	    error => {
-	    	console.log('Error!!!');
-      		this.showError(error);
-	    });
-  	}
-
 
 
 }
