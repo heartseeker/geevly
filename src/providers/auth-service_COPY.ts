@@ -86,5 +86,29 @@ export class AuthService {
       
     }
 
+    testlog() {
+     let params = JSON.stringify({username: 'store2', password: 'kernel32'});
+        let headers = new Headers();
+      headers.append('GEEVLY-API-KEY','8a04542c78cd8ded94df700b2f73e49f33bc613f');
+      // headers.append('Content-type','multipart/form-data');
+      headers.append('Content-type','application/x-www-form-urlencoded');
+      // headers.append('Content-Type', 'application/json');
+
+
+  //       let headers = new Headers({
+    //   'Content-Type': 'application/x-www-form-urlencoded',
+    //   'GEEVLY-API-KEY':'8a04542c78cd8ded94df700b2f73e49f33bc613f'
+    // });
+    // let options = new RequestOptions({
+    //   headers: headers
+    // });
+    // // TODO: Encode the values using encodeURIComponent().
+    // let body = 'username=store2&password=kernel32';
+
+
+      return this.http.post('https://api.geevly.org/api_users/login', params, { headers: headers }).map((res) => res.json());
+      // return this.http.post('https://api.geevly.org/api_users/login', body, options).map((res) => res.json());
+    }
+
 
 }

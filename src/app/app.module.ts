@@ -4,6 +4,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { AuthService } from '../providers/auth-service';
+import { GeevlyService } from '../providers/geevly-service';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,6 @@ import { AuthService } from '../providers/auth-service';
     HomePage,
     LoginPage,
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthService]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthService, GeevlyService]
 })
 export class AppModule {}
