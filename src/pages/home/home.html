@@ -18,12 +18,12 @@
 <ion-content>
     <div [ngSwitch]="selected">
         <ion-list *ngSwitchCase="'unclaimed'">
-          <ion-searchbar ></ion-searchbar>
+          <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
             <ion-item *ngFor="let donee of donees">
                 <ion-thumbnail item-left>
-                    <img src="assets/img/thumbnail-totoro.png">
+                    <img src="{{ donee.full_path }}">
                 </ion-thumbnail>
-                <h2>My Neighbor Totoro</h2>
+                <h2>{{ donee.FirstName + ' ' + donee.LastName}}</h2>
                 <p>Hayao Miyazaki • 1988</p>
                 <button ion-button clear item-right>
                     <ion-icon class="cam" name='camera' item-right></ion-icon>
