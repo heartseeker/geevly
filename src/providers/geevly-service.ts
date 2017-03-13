@@ -17,8 +17,12 @@ export class GeevlyService {
   	console.log('Hello GeevlyService Provider');
   }
 
-	getDonees() {
-      return this.http.get('https://api.geevly.org/api_donee/donees?GEEVLY-API-KEY=' + this.key).map(res => res.json());
+	getDonees(pageNum) {
+      return this.http.get('https://api.geevly.org/api_donee/donees?sort_field=FirstName&sort_order=FirstName&page='+pageNum+'&per_page=5&GEEVLY-API-KEY=' + this.key).map(res => res.json());
+    }
+
+	searchDonees(name) {
+      return this.http.get(`https://api.geevly.org/api_donee/donees?sort_field=FirstName&name=${name}&GEEVLY-API-KEY=${this.key}`).map(res => res.json());
     }
 
 }

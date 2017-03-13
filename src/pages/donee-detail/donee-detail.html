@@ -1,0 +1,51 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Donee Detail</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-card>
+        <ion-item>
+            <ion-icon item-left name="{{ donee.Gender == 'Male' ? 'male' : 'female' }}" item-left large></ion-icon>
+            <h2>{{ donee.FirstName }} {{ donee.LastName }}</h2>
+            <p>{{ this.title }}</p>
+        </ion-item>
+        <img src="{{donee.full_path}}">
+        <ion-card-content [innerHTML]="donee.Summary">
+        </ion-card-content>
+    </ion-card>
+    <ion-list>
+        <ion-item>
+            <h6 item-left>School:</h6>
+            <p>{{donee.School}}</p>
+        </ion-item>
+        <ion-item>
+            <h6 item-left>Achievement:</h6>
+            <p>{{donee.Achievement}}</p>
+        </ion-item>
+        <ion-item>
+            <h6 item-left>Motto:</h6>
+            <p>{{donee.Motto}}</p>
+        </ion-item>
+        <ion-item>
+            <h6 item-left>Dreams:</h6>
+            <p>{{donee.Dreams}}</p>
+        </ion-item>
+        <ion-item>
+            <h6 item-left>Hobbies:</h6>
+            <p>{{donee.Hobbies}}</p>
+        </ion-item>
+        <ion-item>
+            <h6 item-left>Favorite Subject:</h6>
+            <p>{{donee.FavoriteSubject}}</p>
+        </ion-item>
+        <ion-item>
+            <h6 item-left>Favorite Celebrity:</h6>
+            <p>{{donee.FavoriteCelebrity}}</p>
+        </ion-item>
+        <ion-item>
+            <h6 item-left>Favorite Color:</h6>
+            <p>{{donee.FavoriteColor}}</p>
+        </ion-item>
+    </ion-list>
+</ion-content>

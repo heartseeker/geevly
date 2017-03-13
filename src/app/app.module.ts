@@ -3,6 +3,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+import { DoneeDetailPage } from '../pages/donee-detail/donee-detail';
 import { AuthService } from '../providers/auth-service';
 import { GeevlyService } from '../providers/geevly-service';
 
@@ -11,6 +12,7 @@ import { GeevlyService } from '../providers/geevly-service';
     MyApp,
     HomePage,
     LoginPage,
+    DoneeDetailPage,
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -20,6 +22,7 @@ import { GeevlyService } from '../providers/geevly-service';
     MyApp,
     HomePage,
     LoginPage,
+    DoneeDetailPage,
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthService, GeevlyService]
 })

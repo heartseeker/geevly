@@ -49,6 +49,22 @@ export class LoginPage {
 	    });
 	    this.loading.present();
 	}
+
+	logIt() {
+		this.auth.logIt().subscribe(allowed => {
+	    	console.log(allowed);
+      		if (allowed) {
+        		this.loading.dismiss();
+        		this.navCtrl.setRoot(HomePage)
+      		} else {
+	        	this.showError("Access Denied");
+	      }
+	    },
+	    error => {
+	    	console.log('Error!');
+      		this.showError(error);
+	    });
+	}
 	 
   	showError(text) {
   		this.loading.dismiss();
